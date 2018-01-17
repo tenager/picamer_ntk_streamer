@@ -31,11 +31,11 @@ def socket_accept():
 	connection = server_socket.accept()[0].makefile('rb')
 	video_receiver(connection)
 	connection.close()
-	server_socket.close()
+	#server_socket.close()
 
 # video receiver
 def video_receiver(connection):
-	while True:
+	#while True:
 		try:
 			 cmdline = ['mplayer', '-fps', '25', '-cache', '1024', '-']
 	                 player = subprocess.Popen(cmdline, stdin=subprocess.PIPE)
@@ -54,7 +54,8 @@ def video_receiver(connection):
 def main():
 	socket_create()
 	socket_bind()
-	socket_accept()
+	while True:
+		socket_accept()
 
 # if this script is run directly on the terminal using command line
 # run the main() function of the code
