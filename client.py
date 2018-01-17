@@ -11,10 +11,10 @@ PIR_PIN = 4
 my_server = "192.168.1.177"
 
 client_socket = socket.socket()
-client_socket.connect((my_server, 8000))
+#client_socket.connect((my_server, 8000))
 
 # Make a file-like object out of the connection
-connection = client_socket.makefile('wb')
+#connection = client_socket.makefile('wb')
 
 
 class MyTCPHandler(SocketServer.BaseRequestHandler):
@@ -37,6 +37,10 @@ def my_callback(PIR_PIN):
         stream()
 
 def stream():
+	client_socket.connect((my_server, 8000))
+
+	# Make a file-like object out of the connection
+	connection = client_socket.makefile('wb')
 	try:
     		with picamera.PiCamera() as camera:
 			camera.resolution = (640, 480)
