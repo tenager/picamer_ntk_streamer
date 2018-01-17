@@ -27,9 +27,11 @@ def socket_bind():
 		socket_bind()
  
 def socket_accept():
+	global server_socket
 	connection = server_socket.accept()[0].makefile('rb')
 	video_receiver(connection)
 	connection.close()
+	server_socket.close()
 
 # video receiver
 def video_receiver(connection):
@@ -46,8 +48,7 @@ def video_receiver(connection):
                         	player.stdin.write(data)
 
 		finally:
-	    		connection.close()
-    			server_socket.close()
+	    		#connection.close()
     			player.terminate()
 
 def main():
