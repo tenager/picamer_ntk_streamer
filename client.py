@@ -10,7 +10,7 @@ PIR_PIN = 4
 # define your hostname /IP address
 my_server = "192.168.1.177"
 
-client_socket = socket.socket()
+#client_socket = socket.socket()
 #client_socket.connect((my_server, 8000))
 
 # Make a file-like object out of the connection
@@ -37,6 +37,7 @@ def my_callback(PIR_PIN):
         stream()
 
 def stream():
+	client_socket = socket.socket()
 	client_socket.connect((my_server, 8000))
 
 	# Make a file-like object out of the connection
