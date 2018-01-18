@@ -48,7 +48,7 @@ def stream():
         		camera.framerate = 24
         		# Start a preview and let the camera warm up for 2 seconds
         		#camera.start_preview()
-			camera.annotate_text = 'Unauthorized person on the corridor!'
+			camera.annotate_text = 'Unauthorized person detected!'
         		time.sleep(2)
         		# Start recording, sending the output to the connection for 60
         		# seconds, then stop
