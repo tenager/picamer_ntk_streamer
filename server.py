@@ -21,7 +21,7 @@ def socket_bind():
 		global server_socket
 		print ("Binding socket to port: " + str(port))
 		server_socket.bind((host, port))
-		server_socket.listen(0)
+		server_socket.listen(5)
 	except socket.error as msg:
 		print "socket binding failed: " + str(msg) + "Retrying"
 		socket_bind()
