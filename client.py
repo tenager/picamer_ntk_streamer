@@ -16,7 +16,7 @@ my_server = "192.168.1.177"
 # Make a file-like object out of the connection
 #connection = client_socket.makefile('wb')
 
-
+# TCP handler, can be deleted later if not used
 class MyTCPHandler(SocketServer.BaseRequestHandler):
     def handle(self):
         while 1:
