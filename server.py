@@ -37,7 +37,8 @@ def socket_accept():
 def video_receiver(connection):
 	#while True:
 		try:
-			 cmdline = ['mplayer', '-fps', '25', '-cache', '1024', '-']
+			 #cmdline = ['mplayer', '-vo','x11', '-ao','pulse', '-fps', '25', '-cache', '1024', '-']
+                         cmdline = ['vlc', '--demux', 'h264', '-']
 	                 player = subprocess.Popen(cmdline, stdin=subprocess.PIPE)
          	         while True:
                         # Repeatedly read 1k of data from the connection and write it to
